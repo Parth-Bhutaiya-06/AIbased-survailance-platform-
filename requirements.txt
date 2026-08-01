@@ -1,0 +1,10 @@
+ultralytics
+opencv-python
+numpy
+pandas
+matplotlib
+streamlit
+plotly
+sqlite-utils
+psycopg2-binary
+python-dotenv

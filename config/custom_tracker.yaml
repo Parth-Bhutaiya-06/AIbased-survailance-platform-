@@ -1,0 +1,10 @@
+# config/custom_tracker.yaml
+# ByteTrack tracker customized configuration for ID persistence and smooth webcam tracking
+
+tracker_type: bytetrack     # Tracker backend
+track_high_thresh: 0.25     # First-stage match threshold; raise for cleaner tracks, lower to keep more
+track_low_thresh: 0.1       # Second-stage threshold for low-score matches; balances recovery vs drift
+new_track_thresh: 0.25      # Start a new track if no match >= this
+track_buffer: 150           # Frames to keep lost tracks alive; increased from 30 to 150 to remember IDs for 5s
+match_thresh: 0.8           # Association similarity threshold (IoU/cost)
+fuse_score: True            # Fuse detection score with motion/IoU for matching (stabilizes weak detections)

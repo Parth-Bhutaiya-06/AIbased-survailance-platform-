@@ -1,0 +1,17 @@
+# .streamlit/config.toml
+
+[server]
+headless = true
+port = 8501
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#EF4444"          # Red alert color
+backgroundColor = "#0F172A"       # Dark slate background
+secondaryBackgroundColor = "#1E293B" # Medium slate container background
+textColor = "#F8FAFC"             # Slate text
+font = "sans serif"

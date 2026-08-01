@@ -1,0 +1,270 @@
+[2026-08-01 05:53:40] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 05:53:40] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8s.pt
+[2026-08-01 05:53:40] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 05:53:40] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 05:54:23] [INFO] New object detected - ID: 1, Class: train
+[2026-08-01 05:54:38] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 05:54:38] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8s.pt
+[2026-08-01 05:54:38] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 05:54:38] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 05:55:20] [INFO] New object detected - ID: 1, Class: train
+[2026-08-01 13:03:01] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:03:01] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8s.pt
+[2026-08-01 13:03:01] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:03:01] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:08:59] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:08:59] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8n.pt
+[2026-08-01 13:08:59] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:08:59] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:09:02] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:09:19] [INFO] New object detected - ID: 8, Class: remote
+[2026-08-01 13:09:21] [INFO] New object detected - ID: 9, Class: person
+[2026-08-01 13:09:24] [WARNING] RESTRICTED ZONE INTRUSION - ID: 8, Class: cell phone has entered the zone.
+[2026-08-01 13:09:27] [INFO] New object detected - ID: 12, Class: cell phone
+[2026-08-01 13:09:27] [WARNING] RESTRICTED ZONE INTRUSION - ID: 12, Class: cell phone has entered the zone.
+[2026-08-01 13:09:33] [INFO] New object detected - ID: 13, Class: remote
+[2026-08-01 13:09:34] [INFO] New object detected - ID: 15, Class: person
+[2026-08-01 13:09:40] [INFO] Application manual exit triggered.
+[2026-08-01 13:09:41] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:12:46] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:12:46] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 13:12:46] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:12:46] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:12:50] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:12:55] [INFO] New object detected - ID: 2, Class: cell phone
+[2026-08-01 13:13:14] [INFO] New object detected - ID: 3, Class: cell phone
+[2026-08-01 13:13:27] [INFO] New object detected - ID: 4, Class: cell phone
+[2026-08-01 13:14:03] [INFO] Application manual exit triggered.
+[2026-08-01 13:14:03] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:17:54] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:17:54] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8s.pt
+[2026-08-01 13:17:54] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:17:55] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:17:58] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:18:11] [INFO] New object detected - ID: 3, Class: cell phone
+[2026-08-01 13:18:17] [INFO] New object detected - ID: 4, Class: cell phone
+[2026-08-01 13:18:58] [INFO] Application manual exit triggered.
+[2026-08-01 13:18:58] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:21:46] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:21:46] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8n.pt
+[2026-08-01 13:21:46] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:21:46] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:21:55] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:21:59] [INFO] New object detected - ID: 3, Class: remote
+[2026-08-01 13:22:01] [INFO] New object detected - ID: 6, Class: remote
+[2026-08-01 13:22:02] [INFO] New object detected - ID: 8, Class: refrigerator
+[2026-08-01 13:22:09] [INFO] New object detected - ID: 10, Class: cell phone
+[2026-08-01 13:22:11] [INFO] New object detected - ID: 11, Class: remote
+[2026-08-01 13:22:12] [INFO] New object detected - ID: 12, Class: cell phone
+[2026-08-01 13:22:13] [INFO] New object detected - ID: 13, Class: remote
+[2026-08-01 13:22:21] [INFO] New object detected - ID: 16, Class: person
+[2026-08-01 13:22:40] [INFO] Application manual exit triggered.
+[2026-08-01 13:22:40] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:23:49] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:23:49] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8n.pt
+[2026-08-01 13:23:49] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:23:49] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:23:50] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:23:58] [INFO] New object detected - ID: 2, Class: person
+[2026-08-01 13:24:00] [INFO] New object detected - ID: 4, Class: bottle
+[2026-08-01 13:24:00] [INFO] New object detected - ID: 5, Class: person
+[2026-08-01 13:24:02] [INFO] New object detected - ID: 6, Class: person
+[2026-08-01 13:24:02] [INFO] New object detected - ID: 7, Class: bottle
+[2026-08-01 13:24:06] [INFO] New object detected - ID: 10, Class: cell phone
+[2026-08-01 13:24:10] [INFO] New object detected - ID: 12, Class: remote
+[2026-08-01 13:24:13] [INFO] New object detected - ID: 13, Class: person
+[2026-08-01 13:24:14] [INFO] New object detected - ID: 14, Class: bottle
+[2026-08-01 13:24:16] [INFO] New object detected - ID: 15, Class: person
+[2026-08-01 13:24:20] [INFO] Application manual exit triggered.
+[2026-08-01 13:24:21] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:29:30] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:29:30] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8n.pt
+[2026-08-01 13:29:30] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:29:30] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:30:24] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:30:24] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8n.pt
+[2026-08-01 13:30:24] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:30:24] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:30:25] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:30:25] [INFO] New object detected - ID: 2, Class: tv
+[2026-08-01 13:30:25] [INFO] New object detected - ID: 3, Class: tv
+[2026-08-01 13:30:29] [INFO] New object detected - ID: 4, Class: couch
+[2026-08-01 13:30:33] [INFO] New object detected - ID: 6, Class: person
+[2026-08-01 13:30:38] [INFO] New object detected - ID: 13, Class: remote
+[2026-08-01 13:30:38] [INFO] New object detected - ID: 14, Class: cell phone
+[2026-08-01 13:30:38] [INFO] New object detected - ID: 15, Class: remote
+[2026-08-01 13:30:39] [INFO] New object detected - ID: 17, Class: cell phone
+[2026-08-01 13:30:42] [INFO] New object detected - ID: 21, Class: cell phone
+[2026-08-01 13:30:43] [INFO] New object detected - ID: 22, Class: tv
+[2026-08-01 13:30:45] [INFO] New object detected - ID: 26, Class: cell phone
+[2026-08-01 13:30:48] [INFO] New object detected - ID: 27, Class: remote
+[2026-08-01 13:30:48] [INFO] New object detected - ID: 28, Class: remote
+[2026-08-01 13:30:50] [INFO] New object detected - ID: 29, Class: cell phone
+[2026-08-01 13:30:51] [INFO] New object detected - ID: 31, Class: cell phone
+[2026-08-01 13:30:54] [INFO] New object detected - ID: 35, Class: tv
+[2026-08-01 13:31:02] [INFO] New object detected - ID: 42, Class: bed
+[2026-08-01 13:31:07] [INFO] New object detected - ID: 50, Class: person
+[2026-08-01 13:31:13] [INFO] Application manual exit triggered.
+[2026-08-01 13:31:14] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:34:29] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:34:29] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8s.pt
+[2026-08-01 13:34:29] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:34:29] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:34:30] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:34:31] [INFO] New object detected - ID: 101, Class: person
+[2026-08-01 13:34:35] [INFO] New object detected - ID: 2, Class: remote
+[2026-08-01 13:34:36] [INFO] New object detected - ID: 102, Class: cell phone
+[2026-08-01 13:34:37] [INFO] New object detected - ID: 202, Class: cell phone
+[2026-08-01 13:34:37] [INFO] New object detected - ID: 302, Class: remote
+[2026-08-01 13:34:43] [INFO] New object detected - ID: 14, Class: bottle
+[2026-08-01 13:34:50] [INFO] New object detected - ID: 5, Class: remote
+[2026-08-01 13:34:50] [INFO] New object detected - ID: 105, Class: cell phone
+[2026-08-01 13:34:51] [INFO] New object detected - ID: 205, Class: remote
+[2026-08-01 13:34:54] [INFO] New object detected - ID: 15, Class: cell phone
+[2026-08-01 13:34:56] [INFO] New object detected - ID: 20, Class: remote
+[2026-08-01 13:34:58] [INFO] New object detected - ID: 24, Class: cell phone
+[2026-08-01 13:35:01] [INFO] New object detected - ID: 114, Class: remote
+[2026-08-01 13:35:05] [INFO] New object detected - ID: 402, Class: cell phone
+[2026-08-01 13:35:05] [INFO] New object detected - ID: 502, Class: cell phone
+[2026-08-01 13:35:06] [INFO] New object detected - ID: 602, Class: remote
+[2026-08-01 13:35:07] [INFO] New object detected - ID: 33, Class: chair
+[2026-08-01 13:35:11] [INFO] New object detected - ID: 201, Class: person
+[2026-08-01 13:35:12] [INFO] New object detected - ID: 28, Class: person
+[2026-08-01 13:35:12] [INFO] New object detected - ID: 702, Class: person
+[2026-08-01 13:35:16] [INFO] New object detected - ID: 802, Class: person
+[2026-08-01 13:35:16] [INFO] New object detected - ID: 902, Class: person
+[2026-08-01 13:35:17] [INFO] New object detected - ID: 1002, Class: person
+[2026-08-01 13:35:17] [INFO] New object detected - ID: 1102, Class: person
+[2026-08-01 13:35:17] [INFO] New object detected - ID: 1202, Class: cat
+[2026-08-01 13:35:18] [INFO] New object detected - ID: 1302, Class: person
+[2026-08-01 13:35:23] [INFO] Application manual exit triggered.
+[2026-08-01 13:35:24] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:38:00] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:38:00] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 13:38:00] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:38:00] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:38:01] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:38:05] [INFO] New object detected - ID: 2, Class: cell phone
+[2026-08-01 13:39:54] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:39:54] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 13:39:54] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:39:54] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:39:55] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:40:00] [INFO] New object detected - ID: 2, Class: cell phone
+[2026-08-01 13:40:15] [INFO] New object detected - ID: 7, Class: bottle
+[2026-08-01 13:40:19] [INFO] Application manual exit triggered.
+[2026-08-01 13:40:19] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:42:00] [INFO] Initializing Surveillance AI Platform...
+[2026-08-01 13:42:00] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 13:42:00] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:42:00] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:42:01] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:42:04] [INFO] New object detected - ID: 2, Class: cell phone
+[2026-08-01 13:42:07] [INFO] New object detected - ID: 102, Class: chair
+[2026-08-01 13:42:11] [INFO] New object detected - ID: 8, Class: bottle
+[2026-08-01 13:42:17] [INFO] New object detected - ID: 9, Class: remote
+[2026-08-01 13:42:29] [INFO] New object detected - ID: 17, Class: couch
+[2026-08-01 13:42:42] [INFO] Application manual exit triggered.
+[2026-08-01 13:42:42] [INFO] Surveillance components shut down successfully.
+[2026-08-01 13:44:05] [INFO] Initializing Asynchronous Surveillance AI Platform...
+[2026-08-01 13:44:05] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 13:44:05] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 13:44:05] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 13:44:06] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 13:44:11] [INFO] New object detected - ID: 2, Class: remote
+[2026-08-01 13:44:12] [INFO] New object detected - ID: 3, Class: cell phone
+[2026-08-01 13:44:12] [INFO] New object detected - ID: 103, Class: person
+[2026-08-01 13:44:28] [INFO] New object detected - ID: 8, Class: bottle
+[2026-08-01 13:44:28] [INFO] New object detected - ID: 108, Class: wine glass
+[2026-08-01 13:44:30] [INFO] New object detected - ID: 208, Class: toothbrush
+[2026-08-01 13:44:33] [INFO] New object detected - ID: 17, Class: couch
+[2026-08-01 13:44:34] [INFO] New object detected - ID: 117, Class: suitcase
+[2026-08-01 13:44:35] [INFO] New object detected - ID: 19, Class: bed
+[2026-08-01 13:44:35] [INFO] New object detected - ID: 101, Class: bed
+[2026-08-01 13:44:38] [INFO] New object detected - ID: 24, Class: handbag
+[2026-08-01 13:45:02] [INFO] New object detected - ID: 49, Class: dog
+[2026-08-01 13:45:12] [INFO] Application manual exit triggered.
+[2026-08-01 13:45:13] [INFO] Surveillance components shut down successfully.
+[2026-08-01 14:07:45] [INFO] Initializing Asynchronous Surveillance AI Platform...
+[2026-08-01 14:07:45] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 14:07:45] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 14:07:45] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 14:07:48] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 14:08:06] [INFO] New object detected - ID: 2, Class: cell phone
+[2026-08-01 14:08:06] [INFO] New object detected - ID: 3, Class: person
+[2026-08-01 14:08:07] [INFO] New object detected - ID: 102, Class: remote
+[2026-08-01 14:08:18] [INFO] New object detected - ID: 6, Class: bottle
+[2026-08-01 14:08:30] [INFO] New object detected - ID: 14, Class: chair
+[2026-08-01 14:08:46] [INFO] New object detected - ID: 22, Class: couch
+[2026-08-01 14:08:48] [INFO] New object detected - ID: 101, Class: backpack
+[2026-08-01 14:08:53] [INFO] New object detected - ID: 29, Class: dog
+[2026-08-01 14:09:01] [INFO] New object detected - ID: 41, Class: laptop
+[2026-08-01 14:09:02] [INFO] New object detected - ID: 42, Class: suitcase
+[2026-08-01 14:09:06] [INFO] New object detected - ID: 53, Class: couch
+[2026-08-01 14:09:08] [INFO] New object detected - ID: 52, Class: bed
+[2026-08-01 14:09:18] [INFO] New object detected - ID: 54, Class: handbag
+[2026-08-01 14:09:20] [INFO] New object detected - ID: 65, Class: chair
+[2026-08-01 14:09:45] [INFO] Application manual exit triggered.
+[2026-08-01 14:09:45] [INFO] Surveillance components shut down successfully.
+[2026-08-01 14:09:58] [INFO] Initializing Asynchronous Surveillance AI Platform...
+[2026-08-01 14:09:58] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 14:09:58] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 14:09:58] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 14:09:59] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 14:10:00] [INFO] New object detected - ID: 3, Class: chair
+[2026-08-01 14:10:02] [INFO] New object detected - ID: 4, Class: cell phone
+[2026-08-01 14:10:02] [INFO] New object detected - ID: 6, Class: person
+[2026-08-01 14:10:07] [INFO] New object detected - ID: 9, Class: remote
+[2026-08-01 14:10:13] [INFO] New object detected - ID: 104, Class: bottle
+[2026-08-01 14:10:17] [INFO] New object detected - ID: 15, Class: person
+[2026-08-01 14:10:24] [INFO] New object detected - ID: 16, Class: handbag
+[2026-08-01 14:10:25] [INFO] New object detected - ID: 116, Class: couch
+[2026-08-01 14:10:28] [INFO] New object detected - ID: 21, Class: chair
+[2026-08-01 14:10:29] [INFO] New object detected - ID: 24, Class: backpack
+[2026-08-01 14:10:29] [INFO] New object detected - ID: 23, Class: chair
+[2026-08-01 14:10:29] [INFO] New object detected - ID: 27, Class: bed
+[2026-08-01 14:10:43] [INFO] Application manual exit triggered.
+[2026-08-01 14:10:44] [INFO] Surveillance components shut down successfully.
+[2026-08-01 14:20:58] [INFO] Initializing Asynchronous Surveillance AI Platform...
+[2026-08-01 14:20:58] [INFO] Loaded YOLOv8 model from: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 14:20:58] [INFO] Database path set to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\database\tracking.db
+[2026-08-01 14:20:58] [INFO] Saving tracked output video to: C:\Users\Utsav\OneDrive\Desktop\Projects\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 14:20:59] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 14:21:04] [INFO] New object detected - ID: 5, Class: chair
+[2026-08-01 14:21:04] [INFO] New object detected - ID: 6, Class: cell phone
+[2026-08-01 14:21:06] [INFO] New object detected - ID: 9, Class: person
+[2026-08-01 14:21:10] [INFO] New object detected - ID: 11, Class: remote
+[2026-08-01 14:21:13] [INFO] New object detected - ID: 111, Class: bottle
+[2026-08-01 14:21:17] [INFO] Application manual exit triggered.
+[2026-08-01 14:21:17] [INFO] Surveillance components shut down successfully.
+[2026-08-01 23:56:00] [INFO] Initializing Asynchronous Surveillance AI Platform...
+[2026-08-01 23:56:00] [INFO] Loaded YOLOv8 model from: D:\surveillance-ai-platform\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-01 23:56:00] [INFO] Database path set to: D:\surveillance-ai-platform\surveillance-ai-platform\database\tracking.db
+[2026-08-01 23:56:00] [INFO] Saving tracked output video to: D:\surveillance-ai-platform\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-01 23:56:12] [INFO] New object detected - ID: 1, Class: person
+[2026-08-01 23:56:12] [INFO] New object detected - ID: 2, Class: bear
+[2026-08-01 23:56:12] [INFO] New object detected - ID: 101, Class: cell phone
+[2026-08-01 23:56:13] [INFO] New object detected - ID: 4, Class: hot dog
+[2026-08-01 23:56:21] [INFO] New object detected - ID: 12, Class: laptop
+[2026-08-01 23:56:32] [INFO] New object detected - ID: 24, Class: person
+[2026-08-01 23:56:41] [INFO] New object detected - ID: 124, Class: kite
+[2026-08-01 23:56:43] [INFO] New object detected - ID: 27, Class: snowboard
+[2026-08-01 23:56:46] [INFO] New object detected - ID: 127, Class: person
+[2026-08-01 23:56:48] [INFO] New object detected - ID: 31, Class: giraffe
+[2026-08-01 23:57:06] [INFO] New object detected - ID: 104, Class: donut
+[2026-08-01 23:57:10] [INFO] New object detected - ID: 201, Class: wine glass
+[2026-08-01 23:57:11] [INFO] New object detected - ID: 301, Class: bowl
+[2026-08-01 23:57:13] [INFO] New object detected - ID: 401, Class: wine glass
+[2026-08-01 23:57:14] [INFO] New object detected - ID: 46, Class: bottle
+[2026-08-01 23:57:14] [INFO] New object detected - ID: 501, Class: bottle
+[2026-08-01 23:57:17] [INFO] New object detected - ID: 48, Class: scissors
+[2026-08-01 23:57:17] [INFO] New object detected - ID: 146, Class: scissors
+[2026-08-01 23:57:40] [INFO] New object detected - ID: 74, Class: hot dog
+[2026-08-01 23:57:40] [INFO] New object detected - ID: 69, Class: traffic light
+[2026-08-01 23:57:41] [INFO] New object detected - ID: 174, Class: hot dog
+[2026-08-01 23:57:44] [INFO] New object detected - ID: 169, Class: teddy bear
+[2026-08-01 23:57:47] [INFO] New object detected - ID: 269, Class: horse
+[2026-08-02 00:00:04] [INFO] New object detected - ID: 97, Class: toothbrush
+[2026-08-02 00:00:17] [INFO] New object detected - ID: 103, Class: baseball bat
+[2026-08-02 00:02:21] [INFO] Application manual exit triggered.
+[2026-08-02 00:02:22] [INFO] Surveillance components shut down successfully.

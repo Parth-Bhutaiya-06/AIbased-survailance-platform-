@@ -1,0 +1,13 @@
+# render.yaml
+services:
+  - type: web
+    name: surveillance-ai-dashboard
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run dashboard/streamlit_app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.5
+      - key: DATABASE_URL
+        sync: false # Connect this in your Render Dashboard to your free Supabase/Neon PostgreSQL URL
