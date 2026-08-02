@@ -1,198 +1,579 @@
-# dashboard/streamlit_app.py
-import os
-import sqlite3
-import pandas as pd
+# ==========================================================
+# Intelligent Surveillance Analytics Dashboard
+# ==========================================================
+
 import streamlit as st
-import plotly.express as px
-
-# Load environment variables if dotenv is present
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
-
-# Set page configuration
-st.set_page_config(
-    page_title="Surveillance AI Analytics Dashboard",
-    page_icon="🎥",
-    layout="wide",
-    initial_sidebar_state="expanded"
+from streamlit_autorefresh import st_autorefresh
+from components import (
+    dashboard_header,
+    metric_card,
+    live_camera,
+    snapshot_gallery,
+    section,
 )
 
-# Custom css for aesthetics
-st.markdown("""
-<style>
-    .block-container {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-    .stMetric {
-        background-color: #1f2937;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #374151;
-    }
-</style>
-""", unsafe_allow_html=True)
+from charts import (
+    object_distribution,
+    category_share,
+    detection_timeline,
+    top_objects,
+    hourly_activity,
+    system_health,
+    intrusion_chart,
+)
 
-st.title("🎥 Intelligent Surveillance Analytics Dashboard")
-st.markdown("Real-time monitoring metrics, detection analytics, and persistent object tracking.")
 
-# Resolve database path dynamically
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE_DIR, "database", "tracking.db")
+from styles import load_css
 
+# ==========================================================
+# Load Glass CSS
+# ==========================================================
+
+load_css()
+
+from utils import (
+    BASE_DIR,
+    load_tracking_data,
+    dashboard_stats,
+    get_class_distribution,
+    camera_status,
+    snapshot_count,
+    database_size,
+)
+
+from components import (
+    dashboard_header,
+    metric_card,
+)
+
+from charts import (
+    object_distribution,
+    category_share,
+)
+
+# ==========================================================
+# Page Configuration
+# ==========================================================
+
+st.set_page_config(
+    page_title="Surveillance AI Analytics",
+    page_icon="🛰️",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# ==========================================================
+# Auto Refresh Every 5 Seconds
+# ==========================================================
+
+st_autorefresh(
+    interval=5000,
+    key="dashboard_refresh",
+)
+
+
+
+# ==========================================================
+# Header
+# ==========================================================
+
+dashboard_header()
+
+# ==========================================================
 # Sidebar
-st.sidebar.header("Navigation & Options")
-st.sidebar.markdown("This dashboard displays analytics compiled by the Surveillance AI tracking system.")
-if st.sidebar.button("🔄 Refresh Data"):
-    st.rerun()
+# ==========================================================
 
-st.sidebar.info("💡 Run `python main.py` in the workspace root to log new data.")
+with st.sidebar:
 
-def load_data():
-    """
-    Loads tracking logs dynamically. Connects to Cloud PostgreSQL if DATABASE_URL is defined,
-    otherwise falls back to Local SQLite.
-    """
-    db_url = os.environ.get("DATABASE_URL")
-    
-    if db_url:
-        try:
-            import psycopg2
-            conn = psycopg2.connect(db_url)
-            
-            # Auto-create the table in the cloud if it does not exist yet to prevent query errors
-            cursor = conn.cursor()
-            cursor.execute("""
-            CREATE TABLE IF NOT EXISTS tracking_logs(
-                id SERIAL PRIMARY KEY,
-                timestamp VARCHAR(50) NOT NULL,
-                object_id INTEGER NOT NULL,
-                object_class VARCHAR(50) NOT NULL,
-                is_intrusion INTEGER DEFAULT 0
-            )
-            """)
-            conn.commit()
-            cursor.close()
-            
-            query = "SELECT * FROM tracking_logs ORDER BY id DESC"
-            df = pd.read_sql_query(query, conn)
-            conn.close()
-            return df, "Cloud PostgreSQL"
-        except Exception as e:
-            st.sidebar.warning(f"Cloud Database connection failed: {e}. Trying local fallback.")
+    st.image(
+        "https://img.icons8.com/fluency/96/security-checked.png",
+        width=70,
+    )
 
-    # Local SQLite
-    if not os.path.exists(DATABASE_PATH):
-        return pd.DataFrame(), None
+    st.title("AI Surveillance")
 
-    try:
-        conn = sqlite3.connect(DATABASE_PATH)
-        query = "SELECT * FROM tracking_logs ORDER BY id DESC"
-        df = pd.read_sql_query(query, conn)
-        conn.close()
-        return df, "Local SQLite"
-    except Exception as e:
-        st.error(f"Failed to read local SQLite: {e}")
-        return pd.DataFrame(), None
+    st.markdown("---")
 
-# Fetch Logs
-df, db_source = load_data()
+    st.success(f"Camera Status : {camera_status()}")
 
-# Show Connection Status in Sidebar
-if db_source:
-    st.sidebar.success(f"🌐 Connected to: {db_source}")
-else:
-    st.sidebar.warning("⚠️ No data source found!")
+    st.metric(
+        "Snapshots",
+        snapshot_count()
+    )
 
-# Check database contents
+    st.metric(
+        "Database",
+        database_size()
+    )
+
+    st.markdown("---")
+
+    auto = st.checkbox(
+        "Auto Refresh",
+        value=True
+    )
+
+    if st.button("Refresh Now"):
+        st.rerun()
+
+    st.markdown("---")
+
+    st.subheader("About")
+
+    st.caption(
+        """
+Real-Time Surveillance Analytics Platform
+
+YOLOv8 • ByteTrack • OpenCV
+
+SQLite • Streamlit • Plotly
+"""
+    )
+
+# ==========================================================
+# Load Tracking Data
+# ==========================================================
+
+df = load_tracking_data()
+
 if df.empty:
-    st.warning("⚠️ Database not found or empty!")
-    st.info("Please run the tracking system first with: `python main.py` to create the database.")
-else:
-    try:
-        # Parse timestamps
-        df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
 
-        # Metrics Row
-        total_detections = len(df)
-        unique_objects = df['object_id'].nunique()
-        most_active_class = df['object_class'].mode()[0] if not df['object_class'].empty else 'N/A'
+    st.warning("No tracking data found.")
 
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Total Detections Logged", total_detections)
-        with col2:
-            st.metric("Total Unique Tracked", unique_objects)
-        with col3:
-            st.metric("Most Active Category", most_active_class.upper())
+    st.info(
+        "Run\n\n"
+        "python main.py\n\n"
+        "to generate detections."
+    )
 
-        st.markdown("---")
+    st.stop()
 
-        # Visualizations Section
-        col_left, col_right = st.columns(2)
+# ==========================================================
+# Dashboard Statistics
+# ==========================================================
 
-        with col_left:
-            st.subheader("📊 Object Class Distribution")
-            # Group by unique objects to find the primary class of each object ID
-            obj_unique = df.drop_duplicates(subset=['object_id'])
-            class_counts = obj_unique['object_class'].value_counts().reset_index()
-            class_counts.columns = ['Object Class', 'Count']
+stats = dashboard_stats(df)
 
-            fig_class = px.bar(
-                class_counts,
-                x='Object Class',
-                y='Count',
-                color='Object Class',
-                color_discrete_sequence=px.colors.qualitative.Pastel,
-                text_auto=True
-            )
-            fig_class.update_layout(showlegend=False, template="plotly_dark")
-            st.plotly_chart(fig_class, use_container_width=True)
+total_detections = stats["detections"]
 
-        with col_right:
-            st.subheader("🍰 Object Category Share")
-            fig_pie = px.pie(
-                class_counts,
-                names='Object Class',
-                values='Count',
-                color='Object Class',
-                color_discrete_sequence=px.colors.qualitative.Pastel,
-                hole=0.4
-            )
-            fig_pie.update_layout(template="plotly_dark")
-            st.plotly_chart(fig_pie, use_container_width=True)
+unique_objects = stats["unique_objects"]
 
-        st.markdown("---")
+active_class = stats["active_class"]
 
-        # Activity Timeline
-        st.subheader("📈 Detection Frequency Timeline")
-        df_timeline = df.copy()
-        df_timeline.set_index('timestamp', inplace=True)
-        df_timeline_grouped = df_timeline.resample('10s').size().reset_index(name='Detections')
+intrusions = stats["intrusions"]
 
-        fig_timeline = px.area(
-            df_timeline_grouped,
-            x='timestamp',
-            y='Detections',
-            labels={'timestamp': 'Time', 'Detections': 'Detections / 10s'},
-            color_discrete_sequence=['#3B82F6']
-        )
-        fig_timeline.update_layout(template="plotly_dark")
-        st.plotly_chart(fig_timeline, use_container_width=True)
+# ==========================================================
+# KPI Cards
+# ==========================================================
 
-        st.markdown("---")
+st.markdown("<br>", unsafe_allow_html=True)
 
-        # Detailed Logs - Full width
-        st.subheader("📝 Live Tracking Log (Last 100 entries)")
-        df_display = df.copy()
-        # Drop the is_intrusion column from display to keep it clean
-        if 'is_intrusion' in df_display.columns:
-            df_display = df_display.drop(columns=['is_intrusion'])
-        df_display['timestamp'] = df_display['timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
-        st.dataframe(df_display.head(100), use_container_width=True)
+c1, c2, c3, c4 = st.columns(4)
 
-    except Exception as e:
-        st.error(f"Error rendering dashboard: {e}")
+with c1:
+
+    metric_card(
+        "Total Detections",
+        total_detections
+    )
+
+with c2:
+
+    metric_card(
+        "Unique Objects",
+        unique_objects
+    )
+
+with c3:
+
+    metric_card(
+        "Most Active",
+        active_class.upper()
+    )
+
+with c4:
+
+    metric_card(
+        "Intrusions",
+        intrusions
+    )
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# ==========================================================
+# Prepare Data For Charts
+# ==========================================================
+
+class_counts = get_class_distribution(df)
+
+# ==========================================================
+# First Row Charts
+# ==========================================================
+
+left, right = st.columns(2)
+
+with left:
+
+    st.plotly_chart(
+        object_distribution(class_counts),
+        use_container_width=True
+    )
+
+with right:
+
+    st.plotly_chart(
+        category_share(class_counts),
+        use_container_width=True
+    )
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# ========= END OF PART 1 =========
+
+# ==========================================================
+# ANALYTICS SECTION
+# ==========================================================
+
+section("Analytics Overview")
+
+col1, col2 = st.columns(2)
+
+with col1:
+
+    st.plotly_chart(
+        detection_timeline(df),
+        use_container_width=True,
+        config={
+            "displayModeBar": False
+        }
+    )
+
+with col2:
+
+    st.plotly_chart(
+        top_objects(df),
+        use_container_width=True,
+        config={
+            "displayModeBar": False
+        }
+    )
+
+
+# ==========================================================
+# SECOND ROW
+# ==========================================================
+
+col3, col4 = st.columns(2)
+
+with col3:
+
+    st.plotly_chart(
+        hourly_activity(df),
+        use_container_width=True,
+        config={
+            "displayModeBar": False
+        }
+    )
+
+with col4:
+
+    st.plotly_chart(
+        system_health(unique_objects),
+        use_container_width=True,
+        config={
+            "displayModeBar": False
+        }
+    )
+
+
+# ==========================================================
+# INTRUSION CHART
+# ==========================================================
+
+intrusion_fig = intrusion_chart(df)
+
+if intrusion_fig is not None:
+
+    section("Intrusion Analytics")
+
+    st.plotly_chart(
+        intrusion_fig,
+        use_container_width=True,
+        config={
+            "displayModeBar": False
+        }
+    )
+
+
+# ==========================================================
+# LIVE CAMERA + SNAPSHOTS
+# ==========================================================
+
+section("Live Monitoring")
+
+left, right = st.columns([2, 1])
+
+with left:
+
+    live_camera(BASE_DIR)
+
+with right:
+
+    st.markdown(
+        """
+        <div class="glass">
+            <h4>System Status</h4>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.success("Camera Online")
+
+    st.info(f"Unique Objects : {unique_objects}")
+
+    st.info(f"Total Detections : {total_detections}")
+
+    st.info(f"Most Active : {active_class.upper()}")
+
+    st.info(f"Intrusions : {intrusions}")
+
+
+# ==========================================================
+# SNAPSHOT GALLERY
+# ==========================================================
+
+section("Automatic Snapshot Gallery")
+
+snapshot_gallery(BASE_DIR)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+# ================= END PART 2 =====================
+
+# ==========================================================
+# DETECTION LOGS
+# ==========================================================
+
+section("Recent Detection Logs")
+
+search = st.text_input(
+    "🔍 Search by Object Class or ID",
+    placeholder="Example: person, bottle, 3",
+)
+
+logs = df.copy()
+
+# Remove unwanted column
+if "is_intrusion" in logs.columns:
+    logs = logs.drop(columns=["is_intrusion"])
+
+# Search
+if search:
+
+    search = search.lower()
+
+    logs = logs[
+        logs.astype(str)
+        .apply(lambda x: x.str.lower())
+        .apply(lambda x: x.str.contains(search))
+        .any(axis=1)
+    ]
+
+# Format timestamp
+logs["timestamp"] = logs["timestamp"].dt.strftime(
+    "%Y-%m-%d %H:%M:%S"
+)
+
+st.dataframe(
+    logs.head(100),
+    use_container_width=True,
+    height=450,
+)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+
+# ==========================================================
+# RECENT OBJECTS
+# ==========================================================
+
+section("Latest Unique Objects")
+
+latest = (
+    df.sort_values("timestamp", ascending=False)
+      .drop_duplicates(subset=["object_id"])
+      .head(10)
+)
+
+latest["timestamp"] = latest["timestamp"].dt.strftime(
+    "%Y-%m-%d %H:%M:%S"
+)
+
+st.dataframe(
+    latest,
+    use_container_width=True,
+)
+
+
+# ==========================================================
+# QUICK SUMMARY
+# ==========================================================
+
+section("Dashboard Summary")
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+
+    st.success(
+        f"""
+### Objects Detected
+
+**{total_detections}**
+"""
+    )
+
+with c2:
+
+    st.info(
+        f"""
+### Active Categories
+
+**{df['object_class'].nunique()}**
+"""
+    )
+
+with c3:
+
+    st.warning(
+        f"""
+### Latest Object
+
+**{active_class.upper()}**
+"""
+    )
+
+
+# ==========================================================
+# AUTO REFRESH STATUS
+# ==========================================================
+
+section("Dashboard Status")
+
+left, right = st.columns(2)
+
+with left:
+
+    st.success("Dashboard Connected")
+
+    st.write("SQLite Database")
+
+    st.write("Automatic Refresh Enabled")
+
+    st.write("Detection Logs Loaded")
+
+with right:
+
+    st.metric(
+        "Rows Loaded",
+        len(df)
+    )
+
+    st.metric(
+        "Snapshot Images",
+        snapshot_count()
+    )
+
+    st.metric(
+        "Database Size",
+        database_size()
+    )
+
+
+# ==========================================================
+# FOOTER
+# ==========================================================
+
+st.markdown("<br><br>", unsafe_allow_html=True)
+
+st.markdown(
+    """
+<div style='
+background:rgba(255,255,255,.06);
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.08);
+text-align:center;
+'>
+
+<h3 style="margin-bottom:5px;">
+Intelligent Surveillance Analytics Platform
+</h3>
+
+<p style="color:#94a3b8;">
+Real-Time AI Surveillance using
+YOLOv8 • ByteTrack • OpenCV • Streamlit
+</p>
+
+<hr>
+
+<div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+
+<div>
+
+<b>Computer Vision</b><br>
+
+YOLOv8
+
+</div>
+
+<div>
+
+<b>Tracking</b><br>
+
+ByteTrack
+
+</div>
+
+<div>
+
+<b>Database</b><br>
+
+SQLite
+
+</div>
+
+<div>
+
+<b>Dashboard</b><br>
+
+Streamlit
+
+</div>
+
+</div>
+
+<br>
+
+<p style="font-size:14px;color:#64748b;">
+Built for AI Surveillance Analytics
+</p>
+
+</div>
+""",
+unsafe_allow_html=True,
+)
+
+
+# ==========================================================
+# SIDEBAR FOOTER
+# ==========================================================
+
+st.sidebar.markdown("---")
+
+st.sidebar.caption("Version 1.0")
+
+st.sidebar.caption("AI Surveillance Dashboard")
+
+st.sidebar.caption("Auto Refresh: Every 5 Seconds")

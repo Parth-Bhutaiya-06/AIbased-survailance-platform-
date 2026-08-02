@@ -4,6 +4,7 @@ import os
 import time
 import threading
 import numpy as np
+from collections import defaultdict
 from config.config import *
 
 from core.tracker import ObjectTracker
@@ -93,13 +94,83 @@ tracking_thread.start()
 # Tracking event memory to avoid duplicate logs in rapid frames for same ID
 logged_ids = set()
 
+# ==========================================================
+# Snapshot Configuration
+# ==========================================================
+
+SNAPSHOT_DIR = os.path.join(PROJECT_ROOT, "outputs", "snapshots")
+os.makedirs(SNAPSHOT_DIR, exist_ok=True)
+
+MAX_IMAGES_PER_OBJECT = 3
+FRAME_INTERVAL = 40          # Save every 40 processed frames
+
+saved_images = defaultdict(int)
+last_saved_frame = defaultdict(lambda: -FRAME_INTERVAL)
+
+frame_number = 0
+
 # Bounding box cache for UI rendering
 current_boxes = []
 current_ids = []
 current_clss = []
 
+def save_object_snapshot(frame, box, object_id, class_name, frame_number):
+    """
+    Saves only 3 cropped images for every tracked object.
+    """
+
+    key = f"{class_name}_{object_id}"
+
+    # Already saved 3 images
+    if saved_images[key] >= MAX_IMAGES_PER_OBJECT:
+        return
+
+    # Wait before taking next snapshot
+    if frame_number - last_saved_frame[key] < FRAME_INTERVAL:
+        return
+
+    x1, y1, x2, y2 = map(int, box)
+
+    h, w = frame.shape[:2]
+
+    x1 = max(0, x1)
+    y1 = max(0, y1)
+    x2 = min(w, x2)
+    y2 = min(h, y2)
+
+    if x2 <= x1 or y2 <= y1:
+        return
+
+    crop = frame[y1:y2, x1:x2]
+
+    if crop.size == 0:
+        return
+
+    folder = os.path.join(
+        SNAPSHOT_DIR,
+        key
+    )
+
+    os.makedirs(folder, exist_ok=True)
+
+    image_number = saved_images[key] + 1
+
+    filename = os.path.join(
+        folder,
+        f"{key}_{image_number}.jpg"
+    )
+
+    cv2.imwrite(filename, crop)
+
+    saved_images[key] += 1
+    last_saved_frame[key] = frame_number
+
+    logger.info(f"Snapshot Saved -> {filename}")
+
 while True:
-    # Read frame
+    
+    frame_number += 1
+        # Read frame
     success, frame = video.read_frame()
 
     if not success:
@@ -145,7 +216,16 @@ while True:
                         # Update unique object counter
                         counter.update(persistent_id)
 
-                        # Insert raw logging data into database for analytics dashboard
+                            # Save snapshot
+                        save_object_snapshot(
+                                frame,
+                                box,
+                                persistent_id,
+                                class_name,
+                                frame_number
+                            )
+
+                            # Insert raw logging data into database for analytics dashboard
                         db_manager.insert_log(
                             timestamp=logger.get_timestamp(),
                             object_id=persistent_id,

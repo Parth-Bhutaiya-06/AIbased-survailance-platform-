@@ -268,3 +268,27 @@
 [2026-08-02 00:00:17] [INFO] New object detected - ID: 103, Class: baseball bat
 [2026-08-02 00:02:21] [INFO] Application manual exit triggered.
 [2026-08-02 00:02:22] [INFO] Surveillance components shut down successfully.
+[2026-08-02 21:32:23] [INFO] Initializing Asynchronous Surveillance AI Platform...
+[2026-08-02 21:32:23] [INFO] Loaded YOLOv8 model from: D:\surveillance-ai-platform\surveillance-ai-platform\models\yolov8m.pt
+[2026-08-02 21:32:23] [INFO] Database path set to: D:\surveillance-ai-platform\surveillance-ai-platform\database\tracking.db
+[2026-08-02 21:32:23] [INFO] Saving tracked output video to: D:\surveillance-ai-platform\surveillance-ai-platform\outputs\tracked_output.mp4
+[2026-08-02 21:32:29] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\person_1\person_1_1.jpg
+[2026-08-02 21:32:29] [INFO] New object detected - ID: 1, Class: person
+[2026-08-02 21:32:29] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\frisbee_2\frisbee_2_1.jpg
+[2026-08-02 21:32:29] [INFO] New object detected - ID: 2, Class: frisbee
+[2026-08-02 21:32:31] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\person_1\person_1_2.jpg
+[2026-08-02 21:32:34] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\person_1\person_1_3.jpg
+[2026-08-02 21:32:45] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\cell phone_5\cell phone_5_1.jpg
+[2026-08-02 21:32:45] [INFO] New object detected - ID: 5, Class: cell phone
+[2026-08-02 21:32:46] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\person_8\person_8_1.jpg
+[2026-08-02 21:32:46] [INFO] New object detected - ID: 8, Class: person
+[2026-08-02 21:32:47] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\cell phone_5\cell phone_5_2.jpg
+[2026-08-02 21:32:48] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\cell phone_9\cell phone_9_1.jpg
+[2026-08-02 21:32:48] [INFO] New object detected - ID: 9, Class: cell phone
+[2026-08-02 21:32:49] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\person_8\person_8_2.jpg
+[2026-08-02 21:32:50] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\cell phone_5\cell phone_5_3.jpg
+[2026-08-02 21:32:51] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\person_8\person_8_3.jpg
+[2026-08-02 21:32:51] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\cell phone_9\cell phone_9_2.jpg
+[2026-08-02 21:32:57] [INFO] Snapshot Saved -> D:\surveillance-ai-platform\surveillance-ai-platform\outputs\snapshots\cell phone_9\cell phone_9_3.jpg
+[2026-08-02 21:33:11] [INFO] Application manual exit triggered.
+[2026-08-02 21:33:11] [INFO] Surveillance components shut down successfully.
